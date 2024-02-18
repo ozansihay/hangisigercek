@@ -3,7 +3,7 @@ let questions = [
     { image1: 'images/3.webp', image2: 'images/4.webp', correct: 'photo1' },
     { image1: 'images/5.webp', image2: 'images/6.webp', correct: 'photo2' },
     { image1: 'images/7.webp', image2: 'images/8.webp', correct: 'photo2' },
-    { image1: 'images/9.webp', image2: 'images/10.webp', correct: 'photo1' }
+   { image1: 'images/9.webp', image2: 'images/10.webp', correct: 'photo1' },
 ];
 let currentScore = 0;
 let currentQuestionIndex = 0;
