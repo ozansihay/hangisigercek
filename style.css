@@ -1,51 +1,47 @@
-let questions = [
-    { image1: 'photos/1.png', image2: 'photos/2.png', correct: 'photo1' },
-    { image1: 'photos/3.png', image2: 'photos/4.png', correct: 'photo1' },
-    { image1: 'photos/5.png', image2: 'photos/6.png', correct: 'photo2' },
-    { image1: 'photos/7.png', image2: 'photos/8.png', correct: 'photo2' },
-    { image1: 'photos/9.png', image2: 'photos/10.png', correct: 'photo2' }
-];
-let currentScore = 0;
-let currentQuestionIndex = 0;
-
-function loadNewQuestion() {
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion(questions[currentQuestionIndex]);
-    } else {
-        endGame();
-    }
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
 }
 
-function displayQuestion(question) {
-    document.getElementById('photo1').src = question.image1;
-    document.getElementById('photo2').src = question.image2;
+#game-title {
+    font-size: 24px;
+    margin: 20px 0;
+    font-weight: bold;
 }
 
-function makeChoice(selectedPhoto) {
-    let correctAnswer = questions[currentQuestionIndex].correct === selectedPhoto;
-
-    if (correctAnswer) {
-        currentScore++;
-        document.getElementById('result').innerText = "Doğru!";
-    } else {
-        document.getElementById('result').innerText = "Yanlış!";
-    }
-
-    currentQuestionIndex++;
-    setTimeout(loadNewQuestion, 1000); // 1 saniye sonra yeni soruya geç
+#photo-container img {
+    width: 400px;
+    height: 500px;
+    margin: 10px;
+    border: 3px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-function endGame() {
-    document.getElementById('result').innerText = `Oyun bitti! Skorunuz: ${currentScore}/${questions.length}.`;
-    document.getElementById('restart-button').style.display = 'block';
+#photo-container img:hover {
+    border-color: #333;
 }
 
-function restartGame() {
-    currentScore = 0;
-    currentQuestionIndex = 0;
-    document.getElementById('restart-button').style.display = 'none';
-    loadNewQuestion();
+#result {
+    font-size: 20px;
+    margin: 20px 0;
 }
 
-// İlk soruyu yükle
-loadNewQuestion();
+#score {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
